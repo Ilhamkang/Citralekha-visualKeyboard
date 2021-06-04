@@ -65,13 +65,13 @@ def save_as():
 # Fungsi Menu Sunting
 def new_file():
     global TextArea
-    root.title("Tanpanama")
+    root.title("Untitled")
     file = None
     TextArea.delete(1.0, END)
 
 def open_file():
     global TextArea
-    file = filedialog.askopenfilename(filetype=[("Berkas teks", "*.txt")])
+    file = filedialog.askopenfilename(filetype=[("Text document", "*.txt")])
     file = file.name
     
     if file == "":
