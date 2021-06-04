@@ -1,7 +1,6 @@
 # Citralekha-visualKeyboard
 
-
-This keyboard provides special Latin characters to be used in the transliteration and transcription system of Indonesian manuscript and inscriptions. You can type the text with your physical keyboard then klick the virtual key button for the special characters. The purpose of the available characters is meant to be generic, and does not refer to only one transliteration system. <br>
+**Citralekha** is an Old Javanese word (from Sanskrit) which means 'the scribe' or 'the person who write inscription'. This keyboard provides special Latin characters to be used in the transliteration and transcription system of Indonesian manuscript and inscriptions. You can type the text with your physical keyboard then klick the virtual key button for the special characters. The purpose of the available characters is meant to be generic, and does not refer to only one transliteration system. <br>
 
 The code is developed based on [Ganesh Kavar's On Screen Keyboard Python Project](https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project).
 
