@@ -16,14 +16,8 @@ This keyboard provides special Latin characters to be used in the transliteratio
 
 # Characters
 ## Included 
-> |‖Ø°ᴗ/\()[]§—=+
-> aāâbcdḍeéәê 123
-> fghḥiīîēĕə̄ě 456
-> jkḳlḷmṁṃnṅñ   789
-> oöpqrṛṙsśṇŋ 0{}
-> tṭuūûvwṣ'"   -*
-> xyzm̐,.·;:!?
-> 
+> |‖Ø°ᴗ/\()[]§—=+-* aāâbcdḍeéәêēĕə̄ěfghḥiīîjkḳlḷmṁṃnṅñṇŋoöpqrṛṙsśtṭuūûvwṣxyzm̐{}'",.·;:!?1234567890
+
 ## Not Included 
 These characters are not included yet, but will be put on the next version: 
 > å
