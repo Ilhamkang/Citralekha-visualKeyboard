@@ -15,12 +15,14 @@ This keyboard provides special Latin characters to be used in the transliteratio
 * Javanese, Sundanese, and Madurese transliteration system of Library of Congress (https://www.loc.gov/catdir/cpso/romanization/javanese.pdf)
 
 # Characters
-## Included 
+## Available 
 > |‖Ø°ᴗ/\()[]§—=+-* aāâbcdḍeéәêēĕə̄ěfghḥiīîjkḳlḷmṁṃnṅñṇŋoöpqrṛṙsśtṭuūûvwṣxyzm̐{}'",.·;:!?1234567890
 
-## Not Included 
+## Unavailable
 These characters are not included yet, but will be put on the next version: 
 > å
+
+If you have any information of what other characters should be included in the keyboar, please let me know. Feel free to mail me to ilhamnurwansah@gmail.com 
 
 # Version
 The keyboard is now on the early development stage with version 1.0 Beta. The basic text editing commands and features are still beeing added.  
