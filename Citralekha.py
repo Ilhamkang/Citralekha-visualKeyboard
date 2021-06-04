@@ -1,6 +1,9 @@
-# versi 1.0 (Beta)
-# copyright (c) 2021 Ilham Nurwansah 
-# Lisensi GNU GENERAL PUBLIC LICENSE 3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
+# version 1.0 (Beta)
+# GNU GENERAL PUBLIC LICENSE 3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
+# This keyboard is modified from Ganeshkavhar's project (https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project)
+
+
+# ============ the code ================
 
 import tkinter
 import tkinter.scrolledtext as scrolledtext
