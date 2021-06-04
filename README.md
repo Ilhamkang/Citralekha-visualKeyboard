@@ -1,7 +1,7 @@
 # Citralekha-visualKeyboard
 
 
-This keyboard provides special Latin characters to be used in the transliteration and transcription system of Indonesian manuscript and inscriptions. 
+This keyboard provides special Latin characters to be used in the transliteration and transcription system of Indonesian manuscript and inscriptions. The code is based on [Ganesh Kavar's On Screen Keyboard Python Project](https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project).
 
 # Supported Transliteration System
 * Old Javanese - Englsih Dictionary (OJED) (http://sealang.net/ojed/) 
