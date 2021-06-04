@@ -1,7 +1,9 @@
 # Citralekha-visualKeyboard
 
 
-This keyboard provides special Latin characters to be used in the transliteration and transcription system of Indonesian manuscript and inscriptions. You can type the text with your physical keyboard then klick the virtual key button for the special characters. The code is developed based on [Ganesh Kavar's On Screen Keyboard Python Project](https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project).
+This keyboard provides special Latin characters to be used in the transliteration and transcription system of Indonesian manuscript and inscriptions. You can type the text with your physical keyboard then klick the virtual key button for the special characters. The purpose of the available characters is to be generic, and does not refer to only one transliteration system. <br>
+
+The code is developed based on [Ganesh Kavar's On Screen Keyboard Python Project](https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project).
 
 ![image](https://user-images.githubusercontent.com/22653757/120770097-fd6c1180-c547-11eb-8db3-c81966786a84.png)
 
@@ -15,6 +17,7 @@ This keyboard provides special Latin characters to be used in the transliteratio
 * Javanese, Sundanese, and Madurese transliteration system of Library of Congress (https://www.loc.gov/catdir/cpso/romanization/javanese.pdf)
 
 # Characters
+The character list is based on various transliteration system used in Indonesia. 
 ## Available 
 > |‖Ø°ᴗ/\()[]§—=+-* aāâbcdḍeéәêēĕə̄ěfghḥiīîjkḳlḷmṁṃnṅñṇŋoöpqrṛṙsśtṭuūûvwṣxyzm̐{}'",.·;:!?1234567890
 
