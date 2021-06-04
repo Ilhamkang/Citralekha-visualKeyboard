@@ -14,5 +14,12 @@ This keyboard provides special Latin characters to be used in the transliteratio
 * IAST (https://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration) - not all character
 * Javanese, Sundanese, and Madurese transliteration system of Library of Congress (https://www.loc.gov/catdir/cpso/romanization/javanese.pdf)
 
+# Characters
+## Included 
+(list of included characters)
+## Not Included 
+These characters are not included yet, but will be put on the next version: 
+> å
+
 # Version
 The keyboard is now on the early development stage with version 1.0 Beta. The basic text editing commands and features are still beeing added.  
