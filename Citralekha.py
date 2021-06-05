@@ -1,125 +1,169 @@
 # version 1.0 (Beta)
 # GNU GENERAL PUBLIC LICENSE 3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
-# This keyboard is modified from Ganeshkavhar's project (https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project)
+# This keyboard is expanded from Ganeshkavhar's project (https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project)
 
-
-# ============ the code ================
-
-import tkinter
+import tkinter as tk
 import tkinter.scrolledtext as scrolledtext
 import tkinter.messagebox
-import tkinter.font as font
+from tkinter.font import Font
 from tkinter import *
 from tkinter.filedialog import asksaveasfilename, askopenfilename
-from tkinter import font
+from tkinter import ttk
  
 root = Tk()
 root.title("Citralekha 1.0 (Beta)")
 root.resizable(0,0)
+file_path = ''
+tabControl = ttk.Notebook(root)
+
+global selected
+selected = False
+
 
 # Pengaturan font
-font1 = font.Font(name='TkCaptionFont', exists=True)
-font1.config(family='Arial', size=10)
-
-buttonFont = font.Font(family='Tahoma', size=20, underline=1)
+text_font = Font(
+    family="Helvetica",
+    size=14)
 
 
 # fungsi tombol
  
 def select(value):
     if value=="⌫":
-        txt = text.get(1.0,END)
+        txt = TextArea.get(1.0,END)
         val = len(txt)
-        TextArea.delete(1.0,END)
-        text.insert(1.0,txt[:val-2])
+        TextArea.delete(1.0, END)
+        TextArea.insert(1.0,txt[:val-2])    
     elif value == "⏎":
-        TextArea.insert(END,"\n")
+        TextArea.insert(INSERT,"\n")
     elif value=="Spasi":
-        TextArea.insert(END," ")
+        TextArea.insert(INSERT," ")
     elif value == "Tab":
-        v.insert(END,"   ")
+        TextArea.insert(INSERT,"   ")
     else:
-        TextArea.insert(END,value)
+        TextArea.insert(INSERT,value)
 
 
 # kotakdialog
 def about():
-    tkinter.messagebox.showinfo("Tentang Transliterasi Nusantara","Program ini dikembangkan oleh Ilham Nurwansah untuk membantu pengetikan huruf Latin dengan diakritik dalam proses transliterasi naskah-naskah Nusantara. \n ilhamnurwansah@gmail.com")
+    tkinter.messagebox.showinfo("Tentang","Citralekha 1.0 (Beta) dikembangkan oleh Ilham Nurwansah untuk membantu pengetikan huruf Latin dengan diakritik dalam proses transliterasi naskah-naskah Nusantara. \n ilhamnurwansah@gmail.com")
 
 # fungsi menu 'berkas'
 def set_file_path(path):
     global file_path
     file_path = path
-
+  
+def open_file():
+    path = askopenfilename(filetypes=[('Berkas Teks', '*.txt')])
+    with open(path, 'r') as file:
+        code = file.read()
+        TextArea.delete('1.0', END)
+        TextArea.insert('1.0', code)
+        set_file_path(path)
+        
 def save_as():
+    path = asksaveasfilename(filetypes=[('Berkas Teks', '*.txt')])
+    with open(path, 'w') as file:
+        code = text_box.get('1.0', END) 
+        file.write(code)
+        set_file_path(path)
+
+def save_file():
     if file_path == '':
-        path = asksaveasfilename(filetypes=[('Transliterasi', '*.txt')])
+        path = asksaveasfilename(filetypes=[('Berkas Teks', '*.txt')])
     else:
         path = file_path
-    with open(path, 'w', encoding='utf-8') as file:
-#        code = .get('1.0, END') 
+    with open(path, 'w') as file:
+        code = text_box.get('1.0', END) 
         file.write(code)
         set_file_path(path)
         
+## Fungsi edit_bar
         
-# Fungsi Menu Sunting
-def new_file():
-    global TextArea
-    root.title("Untitled")
-    file = None
-    TextArea.delete(1.0, END)
-
-def open_file():
-    global TextArea
-    file = filedialog.askopenfilename(filetype=[("Text document", "*.txt")])
-    file = file.name
-    
-    if file == "":
-        file = None
+def cut_text(e):
+    global selected
+    if e:
+        selected = root.clipboard_get()
     else:
-        root.title(os.path.basename(file) + " - Teks")
-        TextArea.delete(1.0, END)
-        file = open(file, "rb")
-        TextArea.insert(1.0, file.read())
-        file.close()
+        if TextArea.selection_get():
+            selected = TextArea.selection_get()
+            TextArea.delete("sel.first", "sel.last")
+            root.clipboard_clear()
+            root.clipboard_append(selected)
+
+def copy_text(e):
+    global selected
+    if e:
+        selected = root.clipboard_get()
+        
+    if TextArea.selection_get():
+        selected = TextArea.selection_get()
+        root.clipboard_clear()
+        root.clipboard_append(selected)
+        
+def paste_text(e):
+    global selected
+    if e:
+        selected = root.clipboard_get()
+    else:
+        if selected:
+            position = TextArea.index(INSERT)
+            TextArea.insert(position, selected)
+
+def clear_text():
+    TextArea.delete('1.0', END)
+
+def select_all_text(event=None):
+    TextArea.tag_add('sel', '1.0', 'end')
+    return "break"
+
+    
    
 # Root Widgets......
-menubar = Menu(root)  
-file = Menu(menubar, tearoff=0)  
-file.add_command(label='New', command=new_file)  
-file.add_command(label='Open', command=open_file)  
-file.add_command(label='Save', command="")  
-  
-  
-file.add_separator()  
-  
-file.add_command(label="Exit", command=exit)  
-  
-menubar.add_cascade(label="File", menu=file)  
-edit = Menu(menubar, tearoff=0)  
-edit.add_command(label="Undo")  
-  
-edit.add_separator()  
-  
-edit.add_command(label="Cut")  
-edit.add_command(label="Cope")  
-edit.add_command(label="Paste")  
-edit.add_command(label="Delet")  
-edit.add_command(label="Select all")  
-  
-menubar.add_cascade(label="Edit", menu=edit)  
-help = Menu(menubar, tearoff=0)  
-help.add_command(label="About", command=about)  
-menubar.add_cascade(label="Help", menu=help)  
+# Menu Bar
+menu_bar = Menu(root)  
+
+# File bars
+file_bar = Menu(menu_bar, tearoff=0)  
+# file.add_command(label='New File', command=new_file)  
+file_bar.add_command(label='Open', command=open_file)  
+file_bar.add_command(label='Save', command=save_file)  
+file_bar.add_command(label='Save As', command=save_as)  
+file_bar.add_separator()  
+file_bar.add_command(label="Exit", command=exit)  
+menu_bar.add_cascade(label="File", menu=file_bar)  
+
+
+# Edit Bars
+edit_bar = Menu(menu_bar, tearoff=0)  
+edit_bar.add_command(label="Undo", command="")  
+edit_bar.add_command(label="Redo", command="")  
+edit_bar.add_separator()  
+edit_bar.add_command(label="Cut", command=lambda: cut_text(False), accelerator="Ctrl+x")  
+edit_bar.add_command(label="Copy", command=lambda: copy_text(False), accelerator="Ctrl+c")  
+edit_bar.add_command(label="Paste", command=lambda: paste_text(False), accelerator="Ctrl+v")  
+edit_bar.add_command(label="Select all", command=lambda: select_all_text(False), accelerator="Ctrl+a")  
+edit_bar.add_command(label="Clear text", command=clear_text)  
+menu_bar.add_cascade(label="Edit", menu=edit_bar)
+
+# Help Bar 
+help_bar = Menu(menu_bar, tearoff=0)  
+help_bar.add_command(label="Documentation", command='') 
+help_bar.add_command(label="Supported Transliteration", command='')  
+help_bar.add_command(label="About", command=about)  
+menu_bar.add_cascade(label="Help", menu=help_bar)
+
+# Print bar
+# print_bar = Menu(menu_bar, tearoff=0)  
+# menu_bar.add_cascade(label="Print", menu=print_bar, command="")
 
 # kotak teks
-TextArea = scrolledtext.ScrolledText(root,width=90,height=20,wrap=WORD,padx=2,pady=4,borderwidth=1,relief=RIDGE)
-TextArea.grid(row=1,columnspan=16)
+TextArea = Text(undo=True)
+TextArea = scrolledtext.ScrolledText(root,width=70,height=15,wrap=WORD,padx=2,pady=4,borderwidth=1,relief=RIDGE)
+TextArea.grid(row=1,columnspan=15)
+TextArea.configure(font=text_font)
 
-# Tab wiget pilihan layer tombol
-
-
-# Tombol
+# Area Tombol
 buttons = ['|', '‖','Ø','°','ᴗ','/','\\','(',')','[',']','§','—','=','+',
 'a','ā', 'â','b','c','d','ḍ','e','é','ә','ê','⌫','1','2','3',
 'f', 'g','h','ḥ','i','ī','î','ē','ĕ','ə̄','ě','⏎','4','5','6',
@@ -130,16 +174,15 @@ buttons = ['|', '‖','Ø','°','ᴗ','/','\\','(',')','[',']','§','—','=','+
 varrow = 2
 varcolumn = 0
 
-  
 # Fungsi Tombol
 for button in buttons:
     command = lambda x=button:select(x)
     if button !='Spasi':
-        Button(root,text=button,width=2,bg='black',fg='white',activebackground="white",activeforeground='black',
-            relief='raised',padx=10,pady=2,bd=4,command=command).grid(row=varrow,column=varcolumn)
+        Button(root, font=text_font, text=button,width=2,bg='black',fg='white',activebackground="white",activeforeground='black',
+            relief='raised',padx=8,pady=2,bd=4,command=command).grid(row=varrow,column=varcolumn)
     if button =='Spasi':
         Button(root,text=button,width=2,bg='grey',fg='white',activebackground="white",activeforeground='black',
-            relief='raised',padx=110,pady=2,bd=4,command=command).grid(row=8,columnspan=5)
+            relief='raised',padx=80,pady=2,bd=4,command=command).grid(row=8,columnspan=4)
     
     varcolumn+=1
     if varcolumn > 14 and varrow==2:
@@ -161,6 +204,13 @@ for button in buttons:
         varcolumn=3
         varrow+=1
 
-root.config(menu=menubar)
-root.mainloop()
 
+# Keyboard Shortcut functions (Bindings)
+
+root.bind('<Control-Key-x>', cut_text)
+root.bind('<Control-Key-c>', copy_text)
+root.bind('<Control-Key-v>', paste_text)
+root.bind('<Control-Key-a>', select_all_text)
+
+root.config(menu=menu_bar)
+root.mainloop()
