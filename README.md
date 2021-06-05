@@ -22,7 +22,7 @@ The character list is based on various transliteration system used in Indonesia.
 
 ## Unavailable
 These characters are not included yet, but will be put on the next version: 
-> å
+> år̥
 
 If you have any information of what other characters should be included in the keyboar, please let me know. Feel free to mail me to ilhamnurwansah@gmail.com 
 
