@@ -1,4 +1,4 @@
-# version 1.0 (Beta)
+# version 0.2-3 (Beta)
 # GNU GENERAL PUBLIC LICENSE 3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 # This keyboard is expanded from Ganeshkavhar's project (https://github.com/ganeshkavhar/On-Screen-Keyboard-Python-Project)
 
