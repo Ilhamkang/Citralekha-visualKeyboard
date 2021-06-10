@@ -27,4 +27,4 @@ These characters are not included yet, but will be put on the next version:
 If you have any information of what other characters should be included in the keyboar, please let me know. Feel free to mail me to ilhamnurwansah@gmail.com 
 
 # Version
-The keyboard is now on the early development stage with version 1.0 Beta. The basic text editing commands and features are still beeing added.  
+The keyboard is now on the early development stage with version 1.0 Beta. The basic text editing commands and features are still beeing added. Please read the [History.md](https://github.com/Ilhamkang/Citralekha-visualKeyboard/blob/main/History.md) file.
