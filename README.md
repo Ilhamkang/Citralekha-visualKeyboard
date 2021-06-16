@@ -18,11 +18,11 @@ The code is developed based on [Ganesh Kavar's On Screen Keyboard Python Project
 # Characters
 The character list is based on various transliteration system used in Indonesia. Please select the specific character based on the convention you use. 
 ## Available 
-> |‖Ø°ᴗ/\()[]§—=+-* aāâbcdḍeéәêēĕə̄ěfghḥiīîjkḳlḷmṁṃnṅñṇŋoöpqrṛṙsśtṭuūûvwṣxyzm̐{}'",.·;:!?1234567890
+> |‖Ø°ᴗ/\()[]§—=+-* aāâåbcdḍeéәêēĕə̄ěfghḥiīîjkḳlḷl̥mṁṃnṅñṇŋoöpqrṛr̥ṙsśtṭuūûvwṣxyzżẓm̐{}'",.·;:!?1234567890
 
 ## Unavailable
 These characters are not included yet, but will be put on the next version: 
-> år̥ṝḹ˜r̥̄ l̥ l̥̄ ż ẓ
+> ṝḹ˜r̥̄l̥̄ 
 
 If you have any information of what other characters should be included in the keyboar, please let me know. Feel free to mail me to ilhamnurwansah@gmail.com 
 
