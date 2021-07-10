@@ -49,8 +49,8 @@ def select(value):
                         'F', 'G','H','Ḥ','I','Ī','Î','J','Ē','Ĕ','Ə̄','Ě','↵','4','5','6',
                         'K','Ḳ','L', 'Ḷ','L̥','M', 'Ṁ', 'Ṃ','N','Ṇ','Ṅ','Ŋ','⇥','7','8','9',
                         'O','Ö', 'P','Q','R','Ṛ','R̥','Ṙ','S','Ś','Ṣ','Ñ','⬆','0','{','}',
-                        'T','Ṭ','U','Ū','Û','V','W','X','\'','"','','','','','','*',
-                        'Spasi','Y','Z','Ẓ','Ż','M̐',',','.','·',';',':','!','?'
+                        'T','Ṭ','U','Ū','Û','V','W','X','Y','Z','Ẓ','Ż','#','*','<', '>',
+                        'Spasi','M̐','˜','’','‘','\'','"','.','·',';',':','!','?'
                         ]
         varrow = 2
         varcolumn = 0
@@ -60,8 +60,19 @@ def select(value):
             if button !='Spasi':
                 Button(button_frame, font=text_font, text=button,width=2,bg='black',fg='white',activebackground="white",activeforeground='black', relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=varrow,column=varcolumn)
             if button =='Spasi':
-                Button(button_frame,text=button,width=2,bg='grey',fg='white',activebackground="white",activeforeground='black', relief='raised',padx=62,pady=2,bd=4,command=command).grid(row=8,columnspan=4)
-    
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black', relief='raised',padx=62,pady=2,bd=4,command=command).grid(row=8,columnspan=4)
+            if button =='⌫':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=3,column=12)
+            if button =='↵':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                    relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=4,column=12)
+            if button =='⇥':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                    relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=5,column=12)
+            if button =='⬆':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                    relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=6,column=12)
             varcolumn+=1
             if varcolumn > 15 and varrow==2:
                 varcolumn=0
@@ -91,7 +102,19 @@ def select(value):
             if button !='Spasi':
                 Button(button_frame, font=text_font, text=button,width=2,bg='black',fg='white',activebackground="white",activeforeground='black', relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=varrow,column=varcolumn)
             if button =='Spasi':
-                Button(button_frame,text=button,width=2,bg='grey',fg='white',activebackground="white",activeforeground='black', relief='raised',padx=62,pady=2,bd=4,command=command).grid(row=8,columnspan=4)
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black', relief='raised',padx=62,pady=2,bd=4,command=command).grid(row=8,columnspan=4)
+            if button =='⌫':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=3,column=12)
+            if button =='↵':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                    relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=4,column=12)
+            if button =='⇥':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                    relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=5,column=12)
+            if button =='⇧':
+                Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+                    relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=6,column=12)
     
             varcolumn+=1
             if varcolumn > 15 and varrow==2:
@@ -135,15 +158,15 @@ def open_file(e):
         TextArea.insert('1.0', code)
 #        set_file_path(path)
 
-def save_as(e):
+def save_as():
     path = asksaveasfilename(filetypes=[('Berkas Teks', '*.txt')])
     with open(path, 'w') as file:
         code = TextArea.get('1.0', END) 
         file.write(code)
         set_file_path(path)
 
-def save_file(event):
-    if file_path == '':
+def save_file(e):
+    if file_path == 'path':
         path = asksaveasfilename(filetypes=[('Berkas Teks', '*.txt')])
     else:
         path = file_path
@@ -273,8 +296,8 @@ menu_bar = Menu(root)
 file_bar = Menu(menu_bar, tearoff=0)  
 # file.add_command(label='New File', command=new_file)  
 file_bar.add_command(label='Buka', command=lambda: open_file(False), accelerator="Ctrl+o")  
-file_bar.add_command(label='Simpan', command=lambda: save_file(False), accelerator="Ctrl+s")  
-file_bar.add_command(label='Simpan sebagai', command=lambda: save_as(), accelerator="Ctrl+Shift+s")  
+file_bar.add_command(label='Simpan', command=lambda:save_file(False), accelerator="Ctrl+s")  
+file_bar.add_command(label='Simpan sebagai', command=save_as)  
 file_bar.add_separator()  
 file_bar.add_command(label="Keluar", command=endProgram)  
 menu_bar.add_cascade(label="Berkas", menu=file_bar)  
@@ -328,8 +351,8 @@ buttons = ['|', '‖','Ø','°','ᴗ','/','\\','(',')','[',']','§','-','—','=
 'f', 'g','h','ḥ','i','ī','î','j','ē','ĕ','ə̄','ě','↵','4','5','6',
 'k','ḳ','l', 'ḷ','l̥', 'm', 'ṁ', 'ṃ','n','ṇ','ṅ','ŋ','⇥','7','8','9',
 'o','ö', 'p','q','r', 'ṛ','r̥', 'ṙ','s','ś','ṣ','ñ','⇧','0','{','}',
-'t','ṭ','u','ū','û','v','w','x','\'','"','','','','','','*',
-'Spasi','y','z','ẓ','ż','m̐',',','.','·',';',':','!','?']
+'t','ṭ','u','ū','û','v','w','x','y','z','ẓ','ż','#','*','<', '>',
+'Spasi', 'm̐','˜', '’', '‘', '\'', '"','.' ,'·',';',':','!','?']
 varrow = 2
 varcolumn = 0
 
@@ -340,8 +363,21 @@ for button in buttons:
         Button(button_frame, font=text_font, text=button,width=2,bg='black',fg='white',activebackground="white",activeforeground='black',
             relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=varrow,column=varcolumn)
     if button =='Spasi':
-        Button(button_frame,text=button,width=2,bg='grey',fg='white',activebackground="white",activeforeground='black',
+        Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
             relief='raised',padx=62,pady=2,bd=4,command=command).grid(row=8,columnspan=4)
+    if button =='⌫':
+        Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+            relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=3,column=12)
+    if button =='↵':
+        Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+            relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=4,column=12)
+    if button =='⇥':
+        Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+            relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=5,column=12)
+    if button =='⇧':
+        Button(button_frame,text=button,width=2,bg='brown',fg='white',activebackground="white",activeforeground='black',
+            relief='raised',padx=4,pady=2,bd=4,command=command).grid(row=6,column=12)
+    
     
     varcolumn+=1
     if varcolumn > 15 and varrow==2:
