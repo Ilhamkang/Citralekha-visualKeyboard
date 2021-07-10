@@ -14,6 +14,7 @@ The code is developed based on [Ganesh Kavar's On Screen Keyboard Python Project
 * Palanggeran Éjahan Basa Sunda - UPI Bandung
 * IAST (https://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration) - not all character
 * Javanese, Sundanese, and Madurese transliteration system of Library of Congress (https://www.loc.gov/catdir/cpso/romanization/javanese.pdf)
+* Balinese loC (https://www.loc.gov/catdir/cpso/romanization/balinese.pdf) 
 
 # Characters
 The character list is based on various transliteration system used in Indonesia. Please select the specific character based on the convention you use. 
@@ -22,7 +23,9 @@ The character list is based on various transliteration system used in Indonesia.
 
 ## Unavailable
 These characters are not included yet, but will be put on the next version: 
-> ṝḹ˜r̥̄l̥̄ 
+> ṝ ḹ r̥̄ l̥̄ (IAST)
+> ē (Bugis)
+>    
 
 If you have any information of what other characters should be included in the keyboar, please let me know. Feel free to mail me to ilhamnurwansah@gmail.com 
 
