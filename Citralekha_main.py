@@ -266,10 +266,10 @@ def search_output(needle, if_ignore_case, TextArea,
 
 
 def open_guide():
-    webbrowser.open('https://kairaga.com/keyboard/citralekha/documentation',new=1)
+    webbrowser.open('https://kairaga.com/keyboard/citralekha',new=1)
 
-def open_angket():
-    webbrowser.open('https://kairaga.com/keyboard/citralekha/masukan',new=2)
+#def open_angket():
+#    webbrowser.open('https://kairaga.com/keyboard/citralekha/masukan',new=2)
     
 def about_window():
     about_window = Toplevel(root)
@@ -322,7 +322,7 @@ menu_bar.add_cascade(label="Sunting", menu=edit_bar)
 help_bar = Menu(menu_bar, tearoff=0)  
 help_bar.add_command(label="Dokumentasi", command=open_guide) 
 help_bar.add_command(label="Sistem Transliterasi", command=supported_convention)  
-help_bar.add_command(label="[Beri Masukan]", command=open_angket)  
+#help_bar.add_command(label="[Beri Masukan]", command=open_angket)  
 help_bar.add_command(label="Tentang", command=about_window)  
 menu_bar.add_cascade(label="Bantuan", menu=help_bar)
 

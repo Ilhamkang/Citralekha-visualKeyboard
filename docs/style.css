@@ -10,8 +10,9 @@
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
-  float: left;
-  width: 495px;
+  float: none;
+  align: center;
+  width: 500px;
 }
 
 div.gallery img {
