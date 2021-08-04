@@ -23,28 +23,29 @@ global selected
 selected = False
 
 
-# Pengaturan font
+# font setting
 text_font = Font(
     size=12,
-    family="Helvetica")
+    family="Arial")
 
 
-# fungsi tombol
+# button functions
  
 def select(value):
+    global text
     if value=="⌫":
         txt = TextArea.get(1.0,END)
         val = len(txt)
-        TextArea.delete(1.0, END)
+        TextArea.delete(1.0,END)
         TextArea.insert(1.0,txt[:val-2])    
     elif value == "↵":
         TextArea.insert(INSERT,"\n")
     elif value=="Spasi":
         TextArea.insert(INSERT," ")
     elif value == "⇥":
-        TextArea.insert(INSERT,"\t")
+        TextArea.insert(INSERT,"  ")
     elif value =="⇧":
-        caps_buttons = ['|', '‖','Ø','°','ᴗ','/','\\','(',')','[',']','§','-','—','=','+',
+        caps_buttons = ['|', '‖','Ø','°','⏓','/','\\','(',')','[',']','§','-','—','=','+',
                         'A','Ā', 'Â','Å', 'B','C','D','Ḍ','E','É','Ә','Ê','⌫','1','2','3',
                         'F', 'G','H','Ḥ','I','Ī','Î','J','Ē','Ĕ','Ə̄','Ě','↵','4','5','6',
                         'K','Ḳ','L', 'Ḷ','L̥','M', 'Ṁ', 'Ṃ','N','Ṇ','Ṅ','Ŋ','⇥','7','8','9',
@@ -141,11 +142,7 @@ def select(value):
         
         
 
-# kotakdialog
-#def about():
-#    tkinter.messagebox.showinfo("Tentang","Citralekha 1.0 (Beta) \nProgram keyboard visual ini dikembangkan oleh Ilham Nurwansah untuk membantu pengetikan huruf Latin dengan diakritik dalam proses transliterasi naskah-naskah Nusantara. \n ilhamnurwansah@gmail.com")
-
-# fungsi menu 'berkas'
+# Menu bar fungtions 'berkas' (file)
 def set_file_path(path):
     global file_path
     file_path = path
@@ -178,7 +175,7 @@ def save_file(e):
 def endProgram():
     root.destroy()
         
-## Fungsi edit_bar
+## Edit bar functions (sunting)
         
 def cut_text(e):
     global selected
@@ -289,6 +286,7 @@ def supported_convention():
 
 
 # Root Widgets......
+
 # Menu Bar
 menu_bar = Menu(root)  
 
@@ -331,7 +329,7 @@ menu_bar.add_cascade(label="Bantuan", menu=help_bar)
 # print_bar = Menu(menu_bar, tearoff=0)  
 # menu_bar.add_cascade(label="Print", menu=print_bar, command="")
 
-# Frame Teks
+# Text Frame
 
 text_frame = Frame(root)
 text_frame.grid(row=0,columnspan=16,padx=1, pady=1)
@@ -341,12 +339,12 @@ TextArea = scrolledtext.ScrolledText(text_frame, width=65,height=18, wrap=WORD,b
 TextArea.configure(font=text_font)
 TextArea.grid(row=0,columnspan=156)
 
-# Frams Tombol
+# Button Frame
 
 button_frame = Frame(root)
 button_frame.grid(row=1, columnspan=16, padx=1, pady=1)
 
-buttons = ['|', '‖','Ø','°','ᴗ','/','\\','(',')','[',']','§','-','—','=','+',
+buttons = ['|', '‖','Ø','°','⏑','/','\\','(',')','[',']','§','-','—','=','+',
 'a','ā', 'â','å','b','c','d','ḍ','e','é','ә','ê','⌫','1','2','3',
 'f', 'g','h','ḥ','i','ī','î','j','ē','ĕ','ə̄','ě','↵','4','5','6',
 'k','ḳ','l', 'ḷ','l̥', 'm', 'ṁ', 'ṃ','n','ṇ','ṅ','ŋ','⇥','7','8','9',
@@ -356,7 +354,7 @@ buttons = ['|', '‖','Ø','°','ᴗ','/','\\','(',')','[',']','§','-','—','=
 varrow = 2
 varcolumn = 0
 
-# Fungsi Tombol
+# Button functions
 for button in buttons:
     command = lambda x=button:select(x)
     if button !='Spasi':
@@ -409,8 +407,6 @@ root.bind('<Control-Key-a>', select_all_text)
 root.bind('<Control-Key-f>', find_text)
 root.bind('<Control-Key-o>', open_file)
 root.bind('<Control-Key-s>', save_file)
-
-
 
 root.config(menu=menu_bar)
 root.mainloop()
